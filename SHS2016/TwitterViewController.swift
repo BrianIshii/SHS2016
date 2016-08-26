@@ -38,7 +38,8 @@ class TwitterViewController: TWTRTimelineViewController {
     }
     
     @IBAction func exitButtonIsPressed(sender: AnyObject) {
-        performSegueWithIdentifier("twitterViewControllerToViewController", sender: self)
+        self.navigationController?.radialPopViewController(0.5, startFrame: exitButton.frame, transitionCompletion: nil)
+        //performSegueWithIdentifier("twitterViewControllerToViewController", sender: self)
     }
     override func prefersStatusBarHidden() -> Bool {
         return true
