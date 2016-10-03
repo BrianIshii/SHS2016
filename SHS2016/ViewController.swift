@@ -20,11 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var purpleCowboyImage: UIImageView!
     @IBOutlet weak var yellowCowboyImage: UIImageView!
 
-    var time = 10
-    var Timer = NSTimer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        Timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("Notification"), userInfo: nil, repeats: true)
         self.navigationController?.enableRadialSwipe()
         self.navigationController?.navigationBarHidden = true
         self.view.backgroundColor = UIColor.purpleColor()
@@ -32,21 +30,6 @@ class ViewController: UIViewController {
         soundURL = NSURL(fileURLWithPath: filePath!)
         AudioServicesCreateSystemSoundID(soundURL!, &soundID)
         manager.accelerometerUpdateInterval = 0.1
-    }
-    func Notification() {
-        time -= 1
-        
-        if time <= 0 {
-        var notification = UILocalNotification()
-        
-        notification.alertAction = "Go To App"
-        notification.alertTitle = "Game"
-        notification.alertBody = "Football game at SHS 2.0 agaisnt palma"
-        
-        notification.fireDate = NSDate(timeIntervalSinceNow: 0)
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-        Timer.invalidate()
-        }
     }
     @IBAction func twitterButtonIsPressed(sender: AnyObject) {
         manager.stopAccelerometerUpdates()

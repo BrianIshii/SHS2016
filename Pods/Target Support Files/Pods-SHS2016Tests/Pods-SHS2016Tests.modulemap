@@ -1,0 +1,6 @@
+framework module Pods_SHS2016Tests {
+  umbrella header "Pods-SHS2016Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
